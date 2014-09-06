@@ -61,4 +61,19 @@ RSpec.describe 'うるう年の判定' do
     let(:year) { 2300 }
     it { is_expected.to be_falsey }
   end
+
+  context '2000年の場合' do
+    let(:year) { 2000 }
+    it { is_expected.to be_truthy }
+  end
+
+  context '2400年の場合' do
+    let(:year) { 2400 }
+    it { is_expected.to be_truthy }
+  end
+
+  context '2800年の場合' do
+    let(:year) { 2400 }
+    it { is_expected.to be_truthy }
+  end
 end
