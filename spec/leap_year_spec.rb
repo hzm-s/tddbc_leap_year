@@ -7,73 +7,25 @@ RSpec.describe 'うるう年の判定' do
 
   let(:my_year) { MyYear.new(year) }
 
-  context '2014年の場合' do
-    let(:year) { 2014 }
-    it { is_expected.to be_falsey }
-  end
-
-  context '2004年の場合' do
-    let(:year) { 2004 }
-    it { is_expected.to be_truthy }
-  end
-
-  context '2006年の場合' do
-    let(:year) { 2006 }
-    it { is_expected.to be_falsey }
-  end
-
-  context '2008年の場合' do
-    let(:year) { 2008 }
-    it { is_expected.to be_truthy }
-  end
-
-  context '2009年の場合' do
-    let(:year) { 2009 }
-    it { is_expected.to be_falsey }
-  end
-
-  context '2016年の場合' do
-    let(:year) { 2016 }
-    it { is_expected.to be_truthy }
-  end
-
-  context '1984年の場合' do
-    let(:year) { 1984 }
-    it { is_expected.to be_truthy }
-  end
-
-  context '1981年の場合' do
-    let(:year) { 1981 }
-    it { is_expected.to be_falsey }
-  end
-
-  context '2100年の場合' do
-    let(:year) { 2100 }
-    it { is_expected.to be_falsey }
-  end
-
-  context '2200年の場合' do
-    let(:year) { 2200 }
-    it { is_expected.to be_falsey }
-  end
-
-  context '2300年の場合' do
-    let(:year) { 2300 }
-    it { is_expected.to be_falsey }
-  end
-
-  context '2000年の場合' do
-    let(:year) { 2000 }
-    it { is_expected.to be_truthy }
-  end
-
-  context '2400年の場合' do
-    let(:year) { 2400 }
-    it { is_expected.to be_truthy }
-  end
-
-  context '2800年の場合' do
-    let(:year) { 2400 }
-    it { is_expected.to be_truthy }
+  {
+    2014 => :be_falsey,
+    2004 => :be_truthy,
+    2006 => :be_falsey,
+    2008 => :be_truthy,
+    2009 => :be_falsey,
+    2016 => :be_truthy,
+    1984 => :be_truthy,
+    1981 => :be_falsey,
+    2100 => :be_falsey,
+    2200 => :be_falsey,
+    2300 => :be_falsey,
+    2000 => :be_truthy,
+    2400 => :be_truthy,
+    2800 => :be_truthy,
+  }.each do |y, expected|
+    context "#{y}年の場合" do
+      let(:year) { y }
+      it { is_expected.to send(expected) }
+    end
   end
 end
