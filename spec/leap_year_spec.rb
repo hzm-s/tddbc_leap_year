@@ -9,6 +9,6 @@ RSpec.describe 'うるう年の判定' do
 
   context '2014年の場合' do
     let(:year) { 2014 }
-    it { is_expected.to be_truthy }
+    it { is_expected.to be_falsey }
   end
 end
