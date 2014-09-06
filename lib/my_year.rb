@@ -5,6 +5,7 @@ class MyYear
   end
 
   def leap?
+    return false if @year.nil?
     return false if divisible_by_100? && !divisible_by_400?
     divisible_by_4?
   end

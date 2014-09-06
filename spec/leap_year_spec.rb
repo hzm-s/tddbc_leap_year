@@ -7,6 +7,11 @@ RSpec.describe 'うるう年の判定' do
 
   let(:my_year) { MyYear.new(year) }
 
+  context 'nilを渡した場合' do
+    let(:year) { nil }
+    it { is_expected.to be_falsey }
+  end
+
   {
     2014 => :be_falsey,
     2004 => :be_truthy,
